@@ -1,6 +1,6 @@
 # **Facial Emotion Recognition System**
 
-![Project Banner](https://i0.wp.com/sefiks.com/wp-content/uploads/2018/01/kid-expressions-cover.png?resize=459%2C409&ssl=1)  *(Replace with your project image link)*
+![Project Banner](https://i0.wp.com/sefiks.com/wp-content/uploads/2018/01/kid-expressions-cover.png?resize=459%2C409&ssl=1)
 
 This project is a **Facial Emotion Recognition System** built using **Deep Learning** techniques. The model classifies human emotions based on facial expressions and provides real-time emotion detection via a **web application**.
 
@@ -48,7 +48,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ### **Contact**
 If you have any questions or suggestions, feel free to reach out to me.
 
-Email: anurag077269@gmail.com 
+Email: [Email](anurag077269@gmail.com) 
 LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/anurag-pandey-704479253/)
 
 ### **Acknowledgements**
