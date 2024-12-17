@@ -5,8 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emotion Recognition</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+            const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        }
+
+        window.onload = function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            if (theme === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
+        };
+    </script>
 </head>
 <body>
+    <div class="toggle-container">
+        <label class="switch">
+            <input type="checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
     <h1>Facial Emotion Recognition</h1>
     <form action="/" method="POST" enctype="multipart/form-data">
         <label for="image">Upload Image:</label>

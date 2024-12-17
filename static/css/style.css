@@ -62,3 +62,91 @@ img {
     color: red;
     margin-top: 20px;
 }
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+h1.dark-mode, h2.dark-mode {
+    color: #ffffff;
+}
+
+form.dark-mode {
+    background: #1e1e1e;
+}
+
+.error.dark-mode {
+    color: #ff4d4d;
+}
+
+/* Animation for buttons */
+button {
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Animation for images */
+img {
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #007BFF;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.toggle-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
