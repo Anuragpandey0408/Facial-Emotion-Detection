@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # **Facial Emotion Recognition System**
 
 ![Project Banner](https://i0.wp.com/sefiks.com/wp-content/uploads/2018/01/kid-expressions-cover.png?resize=459%2C409&ssl=1)
@@ -56,3 +57,23 @@ FER2013 Dataset: Link to FER2013 dataset
 TensorFlow/Keras Documentation: Link to TensorFlow Docs
 
 ---
+=======
+
+Open the web app at `http://127.0.0.1:5000/`
+
+## Recent Updates
+- **Live functionality added**: New `live.html` page allows real-time emotion detection via the camera.
+- **Style Improvements**: Modified `style.css` for better UI design.
+- **Backend Enhancements**: Updated `app.py` to handle live camera feeds and integrate new templates.
+
+## Contributing
+Feel free to contribute and improve this project. Fork it, make your changes, and submit a pull request.
+
+---
+
+### Next Steps After Editing:
+1. Save this file as `README.md`.
+2. Run:
+```bash
+git add README.md
+

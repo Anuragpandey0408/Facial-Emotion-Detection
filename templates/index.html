@@ -14,6 +14,8 @@
         <button type="submit">Predict Emotion</button>
     </form>
 
+    <button type="button" onclick="window.location.href='/live'">Live Emotion Detection</button>
+
     {% if result %}
         <h2>Predicted Emotion: {{ result }}</h2>
         <img src="{{ url_for('static', filename='uploads/' + image) }}" alt="Uploaded Image">
