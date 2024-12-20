@@ -83,6 +83,14 @@
         "documentation": {}
     },
     {
+        "label": "load_model",
+        "importPath": "keras.models",
+        "description": "keras.models",
+        "isExtraImport": true,
+        "detail": "keras.models",
+        "documentation": {}
+    },
+    {
         "label": "index",
         "kind": 2,
         "importPath": "app",
