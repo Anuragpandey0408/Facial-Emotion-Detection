@@ -46,10 +46,10 @@ def index():
                     result = model.predict(reshaped)
                     label = np.argmax(result, axis=1)[0]
 
-                    # Draw rectangle around the face and put the label
-                    cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), 2)  # Red rectangle
-                    cv2.rectangle(frame, (x, y-40), (x+w, y), (50, 50, 255), -1)  # Background for text
-                    cv2.putText(frame, emotion_labels[label], (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+                    # Draw blue rectangle around the face and put the label in green
+                    cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)  # Blue rectangle
+                    cv2.rectangle(frame, (x, y-40), (x+w, y), (255, 255, 255), -1)  # Background for text
+                    cv2.putText(frame, emotion_labels[label], (x + 5, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)  # Green text
 
                 # Save the output image with the rectangle and label
                 output_image_path = os.path.join("static/uploads", "output_" + file.filename)
@@ -97,10 +97,11 @@ def generate_frames():
             emotion_index = np.argmax(predictions)  # Get the index of max value
             emotion_label = emotion_labels[emotion_index]
             
-            # Draw a rectangle around the face and display emotion label
-            cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)  # Rectangle around face
-            cv2.putText(frame, emotion_label, (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 
-                        1, (0, 255, 0), 2, cv2.LINE_AA)  # Display label
+            # Draw a blue rectangle around the face and display emotion label in green
+            cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)  # Blue rectangle
+            cv2.rectangle(frame, (x, y-40), (x+w, y), (255, 255, 255), -1)  # Background for text
+            cv2.putText(frame, emotion_label, (x + 5, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 
+                        0.8, (0, 255, 0), 2, cv2.LINE_AA)  # Green text
         
         # Encode frame to JPEG
         ret, buffer = cv2.imencode('.jpg', frame)
