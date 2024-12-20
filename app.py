@@ -30,16 +30,32 @@ def index():
                 file.save(file_path)
 
                 # Image Processing
-                img = Image.open(file_path).convert("L")  # Convert to Grayscale
-                img = img.resize((48, 48))               # Resize to 48x48
-                img = np.array(img) / 255.0              # Normalize
-                img = img.reshape(1, 48, 48, 1)
+                frame = cv2.imread(file_path)  # Read the image using OpenCV
+                if frame is None:
+                    error = "Error: Could not open or find the image."
+                    return render_template("index.html", result=None, error=error)
 
-                # Prediction
-                predictions = model.predict(img)
-                predicted_label = emotion_labels[np.argmax(predictions)]
+                gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)  # Convert to Grayscale
+                faces = face_cascade.detectMultiScale(gray, 1.3, 3)  # Detect faces
 
-                return render_template("index.html", result=predicted_label, image=file.filename)
+                for (x, y, w, h) in faces:
+                    sub_face_img = gray[y:y+h, x:x+w]
+                    resized = cv2.resize(sub_face_img, (48, 48))
+                    normalize = resized / 255.0
+                    reshaped = np.reshape(normalize, (1, 48, 48, 1))
+                    result = model.predict(reshaped)
+                    label = np.argmax(result, axis=1)[0]
+
+                    # Draw rectangle around the face and put the label
+                    cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), 2)  # Red rectangle
+                    cv2.rectangle(frame, (x, y-40), (x+w, y), (50, 50, 255), -1)  # Background for text
+                    cv2.putText(frame, emotion_labels[label], (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+
+                # Save the output image with the rectangle and label
+                output_image_path = os.path.join("static/uploads", "output_" + file.filename)
+                cv2.imwrite(output_image_path, frame)
+
+                return render_template("index.html", result=emotion_labels[label], image="output_" + file.filename)
 
             except UnidentifiedImageError:
                 error = "Invalid image format. Please upload a valid image file."
