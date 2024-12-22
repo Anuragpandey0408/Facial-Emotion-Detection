@@ -83,14 +83,6 @@
         "documentation": {}
     },
     {
-        "label": "load_model",
-        "importPath": "keras.models",
-        "description": "keras.models",
-        "isExtraImport": true,
-        "detail": "keras.models",
-        "documentation": {}
-    },
-    {
         "label": "index",
         "kind": 2,
         "importPath": "app",
@@ -122,7 +114,16 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def video_feed():\n    return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')\nif __name__ == \"__main__\":\n    app.run(debug=True)",
+        "peekOfCode": "def video_feed():\n    return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')\n@app.route('/contact')\ndef contact():\n    return render_template('contact.html')  # Ensure you have a contact.html template\nif __name__ == \"__main__\":\n    app.run(debug=False,host='0.0.0.0')",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "contact",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def contact():\n    return render_template('contact.html')  # Ensure you have a contact.html template\nif __name__ == \"__main__\":\n    app.run(debug=False,host='0.0.0.0')",
         "detail": "app",
         "documentation": {}
     },

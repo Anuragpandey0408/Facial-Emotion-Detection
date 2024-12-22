@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Emotion Detection</title>
+    <title>Contact Us</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
         <div class="logo">Emotion Recognition</div>
-        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
         <ul class="nav-links">
             <li><a href="/">Home</a></li>
             <li><a href="/">Upload Image</a></li>
@@ -19,11 +18,14 @@
         </ul>
     </nav>
     <div class="container">
-        <h1>Live Emotion Detection</h1>
-        <img src="{{ url_for('video_feed') }}" style="width: 100%; max-width: 600px;" class="live-image" />
-        <p>Click 'Back to home' to stop the webcam.</p>
+        <h1>Contact Us</h1>
+        <div class="contact-card">
+            <p><strong>Your Name:</strong> Anurag Pandey</p>
+            <p><strong>Your Email:</strong> anurag077269@gmail.com</p>
+            <p><strong>Your Phone Number:</strong> +91 7089219061</p>
+            <p><strong>Your Address:</strong> Indrapuri, Bhopal</p>
+        </div>
         <a href="/" class="back-link">Back to Home</a>
     </div>
-    <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
 </body>
 </html>
